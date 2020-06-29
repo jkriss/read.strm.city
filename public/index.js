@@ -29,7 +29,7 @@ function getStream() {
 function render(post) {
   return `
   <h3>${post.date.toISOString()}</h3>
-  ${post.links.previous ? `<a href="${post.links.previous.absoluteUrl}">&larr; earlier</a>` : '' }
+  ${post.links.previous ? `<div class="nav"><a href="${post.links.previous.absoluteUrl}">&larr; earlier</a></div>` : '' }
   ${post.body}
   `
 }
@@ -61,7 +61,11 @@ async function toPostObject(res, stream) {
     if (type.includes('html')) {
       body = insane(body)
     }
+  } else if (type.includes('image')) {
+    const blobUrl = URL.createObjectURL(await res.blob())
+    body = `<a href="${blobUrl}"><img src="${blobUrl}"></a>`
   }
+
   return {
     type,
     date,
