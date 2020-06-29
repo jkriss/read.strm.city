@@ -1,0 +1,27 @@
+{
+  "name": "read.strm.city",
+  "version": "0.0.1",
+  "author": "Jesse Kriss <jesse@jklabs.net>",
+  "license": "MIT",
+  "browserslist": [
+    "> 5%"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "parcel public/index.html",
+    "build": "rimraf dist ; parcel build public/index.html; cp public/.access dist/",
+    "start": "altcloud server dist/ -p 1234",
+    "deploy": "npm run build && rsync -avz dist/* altcloud@tinyserver.club:webroot/read.strm.city"
+  },
+  "devDependencies": {
+    "altcloud": "^1.0.3",
+    "parcel": "^2.0.0-beta.1",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "insane": "^2.6.2",
+    "marked": "^1.1.0"
+  }
+}

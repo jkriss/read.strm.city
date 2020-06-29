@@ -1,0 +1,39 @@
+body {
+      padding: 30px;
+      margin: 0;
+      background: #fffefe;
+      color: #222;
+      font-family: Georgia, serif;
+    }
+
+    h1, h2, h3 {
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #d9d7d5;
+      width: 20%;
+    }
+
+    .post {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    p {
+       line-height: 1.8em;
+       font-size: 1.15em;
+    }
+
+    blockquote {
+      font-size: 1.4em;
+      font-style: italic;
+    }
+
+    code {
+      background: #eee;
+      display: block;
+      color: #000;
+      padding: 20px 10px;
+    }
