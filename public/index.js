@@ -10,7 +10,7 @@ function normalizeStream(streamName) {
   const [user, path] = streamName.split('@')
   let pathParts = path.split(':')
   let host = pathParts.shift()
-  if (user) pathParts.unshift(user)
+  if (user) pathParts.unshift('@'+user)
   const isLocal = isLocalhost(host)
   const proto = isLocal ? 'http' : 'https'
   const portPart = isLocal ? ':4545' : ''
