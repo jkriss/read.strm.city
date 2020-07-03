@@ -10,7 +10,7 @@ export default {
   plugins: [
     html({ minify: false }),
     commonjs(),
-    resolve(),
+    resolve({ browser: true }),
     terser(),
     copy({
       targets: [

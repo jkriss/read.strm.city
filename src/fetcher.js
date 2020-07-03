@@ -1,13 +1,6 @@
 import marked from "marked";
 import sanitize from "insane";
-// import { Remarkable } from "remarkable";
-// import createDOMPurify from "dompurify";
 import * as TimeStreams from "./client";
-
-// // const { sanitize } = createDOMPurify(window);
-// function sanitize(str) {
-//   return str;
-// }
 
 function isLocalhost(hostname) {
   return ["localhost", "127.0.0.1", "0.0.0.0"].includes(hostname);
