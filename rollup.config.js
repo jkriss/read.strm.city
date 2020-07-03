@@ -8,7 +8,7 @@ export default {
   input: "index.html",
   output: { dir: "dist", compact: true },
   plugins: [
-    html(),
+    html({ minify: false }),
     commonjs(),
     resolve(),
     terser(),
