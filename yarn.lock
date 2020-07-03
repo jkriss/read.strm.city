@@ -8651,10 +8651,10 @@ table-layout@^1.0.0:
     typical "^5.2.0"
     wordwrapjs "^4.0.0"
 
-template-stamper@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/template-stamper/-/template-stamper-0.0.2.tgz#cc1749fb13d3a5ac9da8f6abe84b567b42997e23"
-  integrity sha512-g/Qqd8jE+97UWQgdlUPgfXi4NCQpppvkKLvjQEhXmg/mUaYtRkdxjBHGe+IXhq0E4kbZEp8zSDwp9S6zDKDmwQ==
+template-stamper@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/template-stamper/-/template-stamper-0.0.4.tgz#a1037691135c7b72ba9a3982f2409a3a53fdae2c"
+  integrity sha512-UaTt/Vby8+8bJtEnkbJ758oemhT0gvjZwfG7z2ONcLPJFIC6fovJVbG7hV1vl0+czA1APbWpHva+F93QqbjFHw==
 
 term-size@^2.1.1:
   version "2.2.0"

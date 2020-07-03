@@ -46,7 +46,6 @@ window.addEventListener("DOMContentLoaded", async () => {
       p.content = p.body;
     });
     const lastPost = posts[posts.length - 1];
-    console.log("last post is", lastPost);
     render({ stream, posts, lastPost });
   } else {
     render({});
