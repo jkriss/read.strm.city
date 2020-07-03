@@ -5,7 +5,7 @@ import { terser } from "rollup-plugin-terser";
 import copy from "rollup-plugin-copy";
 
 export default {
-  input: "src/index.html",
+  input: "index.html",
   output: { dir: "dist", compact: true },
   plugins: [
     html(),
@@ -14,7 +14,7 @@ export default {
     terser(),
     copy({
       targets: [
-        { src: "src/*.css", dest: "dist" },
+        { src: "*.css", dest: "dist" },
         { src: "src/.access", dest: "dist" },
       ],
     }),
