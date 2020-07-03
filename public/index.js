@@ -39,7 +39,9 @@ async function toPostObject(res, stream) {
   const date = new Date(res.headers.get('post-time'))
   const links = TimeStreams.parseLinkHeader(res.headers.get('link'))
 
-  if (links.previous) {
+  if (!links) console.warn('No Link header. Is it allowed by CORS?')
+
+  if (links && links.previous) {
     const prevUrl = links.previous.url
     // console.log("raw url:", prevUrl)
     const newUrl = new URL(prevUrl, res.url)
