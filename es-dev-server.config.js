@@ -1,6 +1,7 @@
 const cjsTransformer = require("es-dev-commonjs-transformer");
 
 module.exports = {
+  rootDir: "src",
   nodeResolve: true,
   responseTransformers: [cjsTransformer(["**/node_modules/@open-wc/**/*"])],
   middlewares: [

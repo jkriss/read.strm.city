@@ -11,6 +11,7 @@
   },
   "scripts": {
     "dev": "yarn es-dev-server --preserve-symlinks --watch",
+    "start": "altcloud server dist",
     "build": "rimraf dist ; rollup --config rollup.config.js",
     "deploy": "npm run build && rsync -avz dist/. altcloud@tinyserver.club:webroot/read.strm.city"
   },
