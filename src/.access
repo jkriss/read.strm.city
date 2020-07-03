@@ -1,2 +1,5 @@
 "*splat":
   404: index.html
+:styles.css:
+  headers:
+    Cache-Control: max-age=30
