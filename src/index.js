@@ -20,7 +20,12 @@ window.addEventListener("DOMContentLoaded", async () => {
   const postID = window.location.pathname.slice(1).split("/")[1];
 
   if (stream) {
-    stream.friendlyName = stream.name.replace(/:/g, " / ");
+    // stream.friendlyName = stream.name.replace(/:/g, " / ");
+    const [_, user, path] = stream.name.match(/([^@]+)?@[^:]+:(.+)/);
+    stream.friendlyName = `${user ? `${user} / ` : ""}${path.replace(
+      /:/g,
+      " / "
+    )}`;
     stream.href = `${stream.name}${window.location.hash}`;
 
     render({ loading: true, stream });
