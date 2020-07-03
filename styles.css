@@ -6,7 +6,9 @@ body {
   font-family: Georgia, serif;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -16,9 +18,18 @@ hr {
   width: 20%;
 }
 
-.post {
+#blog {
   max-width: 700px;
   margin: 0 auto;
+}
+
+#blog h1 a {
+  text-decoration: none;
+  color: #222;
+}
+
+#blog h1 a:hover {
+  text-decoration: underline;
 }
 
 .nav {
@@ -30,8 +41,8 @@ hr {
 }
 
 p {
-   line-height: 1.8em;
-   font-size: 1.15em;
+  line-height: 1.8em;
+  font-size: 1.15em;
 }
 
 blockquote {

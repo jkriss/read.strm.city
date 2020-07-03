@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>read.strm.city</title>
+  <base href="/">
+  <link rel="icon" type="image/png"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQYV2MQERH5DwABuAE8RBfWTAAAAABJRU5ErkJggg==" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script type="module" src="index.js"></script>
+</head>
+
+<body>
+  <div id="blog"></div>
+
+  <template id=page>
+
+    <div if={loading}>loading...</div>
+
+    <div if={posts}>
+      <h1><a href={stream.name}>{stream.friendlyName}</a></h1>
+
+      <div unless={posts.length}>Sorry, couldn't find that content.</div>
+
+      <article class=post each={posts}>
+        <div if={this.links.previous}>
+          <a href={this.links.previous.absoluteUrl}>&larr; older</a>
+        </div>
+        <h2>{this.date}</h2>
+        <div class=post html={this.content}>
+        </div>
+      </article>
+    </div>
+
+    <div unless={stream}>
+      <p>
+        Hi there! This is a <a href="https://timestreams.org">Time Stream</a>
+        reader, so it doesn't do much without a stream.
+      </p>
+      <p>
+        Maybe try
+        <a href="jkriss@tinyserver.club:writing">jkriss@tinyserver.club:writing</a>.
+      </p>
+    </div>
+  </template>
+</body>
+
+</html>

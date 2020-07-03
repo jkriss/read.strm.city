@@ -10,18 +10,28 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "parcel public/index.html",
-    "build": "rimraf dist ; parcel build public/index.html; cp public/.access dist/",
-    "start": "altcloud server dist/ -p 1234",
+    "dev": "yarn es-dev-server --preserve-symlinks --watch",
+    "build": "rimraf dist ; rollup --config rollup.config.js",
     "deploy": "npm run build && rsync -avz dist/. altcloud@tinyserver.club:webroot/read.strm.city"
   },
   "devDependencies": {
+    "@open-wc/rollup-plugin-html": "^1.1.0",
+    "@rollup/plugin-commonjs": "^13.0.0",
     "altcloud": "^1.0.3",
+    "es-dev-commonjs-transformer": "^0.2.0",
+    "es-dev-server": "^1.56.0",
     "parcel": "^2.0.0-beta.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "rollup": "^2.18.2",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-terser": "^6.1.0"
   },
   "dependencies": {
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "dompurify": "^2.0.12",
     "insane": "^2.6.2",
-    "marked": "^1.1.0"
+    "marked": "^1.1.0",
+    "remarkable": "^2.0.1",
+    "template-stamper": "^0.0.2"
   }
 }
