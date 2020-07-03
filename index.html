@@ -8,14 +8,53 @@
   <base href="/">
   <link rel="icon" type="image/png"
     href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQYV2MQERH5DwABuAE8RBfWTAAAAABJRU5ErkJggg==" />
-  <link rel="stylesheet" href="styles.css" />
   <script type="module" src="src/index.js"></script>
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="preload" href="list.css" as="style">
 </head>
 
 <body>
   <div id="blog"></div>
 
-  <template id=page>
+  <template id=list data-post-count=5>
+
+    <link rel="stylesheet" href="list.css" />
+
+    <div if={loading}>loading...</div>
+
+    <div if={posts}>
+      <h1><a href={stream.href}>{stream.friendlyName}</a></h1>
+
+      <div unless={posts.length}>Sorry, couldn't find that content.</div>
+
+      <article class=post each={posts}>
+        <h3>{this.date}</h3>
+        <div class=post html={this.content}>
+        </div>
+      </article>
+
+      <a style="display: inline-block; margin-top: 1rem;" if={lastPost.links.previous}
+        href={lastPost.links.previous.absoluteUrl}>&larr;
+        older</a>
+
+    </div>
+
+    <div unless={stream}>
+      <p>
+        Hi there! This is a <a href="https://timestreams.org">Time Stream</a>
+        reader, so it doesn't do much without a stream.
+      </p>
+      <p>
+        Maybe try
+        <a href="@timestreams.org:status#list">@timestreams.org:status</a>.
+      </p>
+    </div>
+  </template>
+
+
+  <template id=single-post data-post-count=1>
+
+    <link rel="stylesheet" href="styles.css" />
 
     <div if={loading}>loading...</div>
 

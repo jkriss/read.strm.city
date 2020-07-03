@@ -4,7 +4,11 @@ import { getPosts } from "./client";
 
 window.addEventListener("DOMContentLoaded", async () => {
   const rootEl = document.querySelector("#blog");
-  const template = document.querySelector("#page");
+  const hash = window.location.hash === "" ? undefined : window.location.hash;
+  const templateName = hash || "#single-post";
+  let template = document.querySelector(templateName);
+
+  const maxPosts = template.getAttribute("data-post-count") || 10;
 
   function render(data) {
     rootEl.innerHTML = "";
@@ -17,13 +21,14 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   if (stream) {
     stream.friendlyName = stream.name.replace(/:/g, " / ");
+    stream.href = `${stream.name}${window.location.hash}`;
 
     render({ loading: true, stream });
 
     const postUrl = postID ? `${stream.url}/${postID}` : stream.url;
     let responses;
     try {
-      responses = await getPosts(postUrl, 1);
+      responses = await getPosts(postUrl, maxPosts);
     } catch (err) {
       render({ stream });
     }
@@ -35,7 +40,9 @@ window.addEventListener("DOMContentLoaded", async () => {
       p.date = p.date.toISOString();
       p.content = p.body;
     });
-    render({ stream, posts });
+    const lastPost = posts[posts.length - 1];
+    console.log("last post is", lastPost);
+    render({ stream, posts, lastPost });
   } else {
     render({});
   }
