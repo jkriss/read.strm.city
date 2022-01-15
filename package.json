@@ -31,7 +31,7 @@
     "@rollup/plugin-node-resolve": "^8.1.0",
     "dompurify": "^2.0.12",
     "insane": "^2.6.2",
-    "marked": "^1.1.0",
+    "marked": "^4.0.10",
     "remarkable": "^2.0.1",
     "template-stamper": "^0.0.4"
   }
